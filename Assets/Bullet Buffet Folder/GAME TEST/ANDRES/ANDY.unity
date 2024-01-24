@@ -244,8 +244,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: c0767b07a1106b84185d0724b0df4627, type: 2}
-  handgunWeapon: {fileID: 0}
-  meeleWeapon: {fileID: 0}
 --- !u!1 &698182920
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +584,7 @@ GameObject:
   - component: {fileID: 1604833430}
   m_Layer: 0
   m_Name: PlayerTest
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -604,8 +602,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: c0767b07a1106b84185d0724b0df4627, type: 2}
-  handgunWeapon: {fileID: 0}
-  meeleWeapon: {fileID: 0}
 --- !u!4 &1604833431
 Transform:
   m_ObjectHideFlags: 0

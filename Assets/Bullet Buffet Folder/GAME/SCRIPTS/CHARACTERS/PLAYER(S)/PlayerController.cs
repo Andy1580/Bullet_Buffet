@@ -1,16 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] 
-    private float playerSpeed = 2.0f;
+    private void Start()
+    {
+        controller = gameObject.GetComponent<CharacterController>();
+    }
+
+    #region Movement
+    [Header("Stats")]
+    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float gravityValue = -9.81f;
     //private float jumpHeight = 1.0f;
-    [SerializeField]
-    private float gravityValue = -9.81f;
 
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -18,10 +21,6 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementInput = Vector2.zero;
 
-    private void Start()
-    {
-        controller = gameObject.GetComponent<CharacterController>();
-    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -53,4 +52,13 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
     }
+    #endregion
+
+    #region Ability
+
+    
+
+    
+
+    #endregion
 }

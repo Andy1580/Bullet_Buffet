@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterDisplay : MonoBehaviour
 {
-    public Character character;
+    [SerializeField] private CharacterData character;
 
     private GameObject skin;
-    public GameObject handgunWeapon;
-    public GameObject meeleWeapon;
+    private GameObject handgunWeapon;
+    private GameObject meeleWeapon;
 
     private void Start()
     {

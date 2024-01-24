@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Character", menuName = "Character")]
-public class Character : ScriptableObject
+[CreateAssetMenu(fileName = "New CharacterData", menuName = "CharacterData")]
+public class CharacterData : ScriptableObject
 {
     public new string name;
 

@@ -18,7 +18,7 @@ MonoBehaviour:
   handgunAttack: 6
   velocity: 8
   dash: 5
-  _skin: {fileID: 2135681517800813417, guid: 3b4a67e3b3e770f46be212e9b18372aa, type: 3}
+  _skin: {fileID: 2135681517800813417, guid: 16124046ad0ba6d42a84ef56d96b3e6f, type: 3}
   _handgunWeapon: {fileID: 0}
   _meeleWeapon: {fileID: 0}
   shieldAbility: {fileID: 0}
