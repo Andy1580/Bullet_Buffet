@@ -9,8 +9,10 @@ public class PlayerController : MonoBehaviour
         controller = gameObject.GetComponent<CharacterController>();
     }
 
+
+
     #region Movement
-    [Header("Stats")]
+    [Header("Movement stats")]
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float gravityValue = -9.81f;
     //private float jumpHeight = 1.0f;
@@ -29,6 +31,10 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        BulletShoot();
+
+        cont -= Time.deltaTime;
+
         groundedPlayer = controller.isGrounded;
         if (groundedPlayer && playerVelocity.y < 0)
         {
@@ -54,11 +60,41 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
-    #region Ability
+    #region Skills
 
-    
+    #endregion
 
-    
+    #region Handgun
+
+    [Header("Handgun stats")]
+    [SerializeField] private float bulletSpeed;
+    [SerializeField] private float cooldown;
+
+    [SerializeField] private Transform bulletprefab;
+    [SerializeField] private Transform bulletSpawn;
+
+    [SerializeField] private bool isShooting = false;
+
+    private float cont = 0;
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        isShooting = context.ReadValue<bool>();
+        isShooting = context.action.triggered;
+        //BulletShoot();
+    }
+
+    void BulletShoot()
+    {
+        if (Input.GetMouseButtonDown(0) && cont <= 0)
+        {
+            isShooting = true;
+            Transform clon = Instantiate(bulletprefab, bulletSpawn.position, bulletSpawn.rotation);
+            clon.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
+            Destroy(clon.gameObject, 3);
+            cont = cooldown;
+        }
+    }
 
     #endregion
 }
