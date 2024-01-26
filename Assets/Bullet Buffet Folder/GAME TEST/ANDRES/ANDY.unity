@@ -244,6 +244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: c0767b07a1106b84185d0724b0df4627, type: 2}
+  healthPlayer: 0
 --- !u!1001 &384335449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -565,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   character: {fileID: 11400000, guid: c0767b07a1106b84185d0724b0df4627, type: 2}
+  healthPlayer: 0
 --- !u!4 &1604833431
 Transform:
   m_ObjectHideFlags: 0

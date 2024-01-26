@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+
+   
+
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
