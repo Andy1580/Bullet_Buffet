@@ -1,15 +1,18 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-
+    private PlayerInput playerInput;
    
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
+        playerInput = GetComponent<PlayerInput>();
     }
 
 
@@ -26,6 +29,8 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementInput = Vector2.zero;
 
+    
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -34,7 +39,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        BulletShoot();
+        //BulletShoot();
+
+        CallbackContext contexto = playerInput.actions["Shoot"].ReadValue<CallbackContext>();
 
         cont -= Time.deltaTime;
 
@@ -76,27 +83,36 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform bulletprefab;
     [SerializeField] private Transform bulletSpawn;
 
-    [SerializeField] private bool isShooting = false;
-
     private float cont = 0;
+
+    private ControlInput input;
+
+    public InputAction shoot;
+
+    private InputControl shoot2;
+
+    public delegate void Shoot(in Shoot input);
 
     public void OnShoot(InputAction.CallbackContext context)
     {
-        isShooting = context.ReadValue<bool>();
-        isShooting = context.action.triggered;
-        //BulletShoot();
+        //shoot2 = playerInput.actions["Fire"].triggered.
+        //input = context.
+        //isShooting = context.ReadValue<bool>();
+        //isShooting = context.action.triggered;
+        //BulletShoot() = context.ReadValue;
+        //Debug.Log("Pressed");
     }
 
     void BulletShoot()
     {
-        if (Input.GetMouseButtonDown(0) && cont <= 0)
-        {
-            isShooting = true;
             Transform clon = Instantiate(bulletprefab, bulletSpawn.position, bulletSpawn.rotation);
             clon.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             Destroy(clon.gameObject, 3);
             cont = cooldown;
-        }
+        
+        //if (playerInput.actions["Shoot"].triggered && cont <= 0)
+        //{
+        //}
     }
 
     #endregion

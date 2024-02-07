@@ -20,8 +20,17 @@
                     "id": "590e1949-53b3-413d-8aae-88deb64ae127",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MousePos",
+                    "type": "Value",
+                    "id": "8bfcb322-9973-4174-a7ff-3078dd43ee19",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -94,7 +103,7 @@
                 {
                     "name": "",
                     "id": "6829fa2e-f203-43e3-ae4a-f4ccfbdd5914",
-                    "path": "<Mouse>/leftButton",
+                    "path": "<Mouse>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -110,6 +119,17 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d827a71-9947-4a41-bab9-32baa7b4a1df",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePos",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
