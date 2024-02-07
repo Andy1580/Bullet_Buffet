@@ -15,11 +15,11 @@ public class DamageToPlayer : MonoBehaviour
         //characterData = player.GetComponent<CharacterData>();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(player.tag == "Player")
-        {
-            chD.healthPlayer -= 50;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(player.tag == "Player")
+    //    {
+    //        chD.healthPlayer -= 50;
+    //    }
+    //}
 }

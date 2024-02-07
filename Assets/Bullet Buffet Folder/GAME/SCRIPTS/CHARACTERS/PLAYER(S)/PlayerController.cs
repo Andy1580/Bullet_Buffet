@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
         //isShooting = context.action.triggered;
         //BulletShoot() = context.ReadValue;
         //Debug.Log("Pressed");
+        BulletShoot();
     }
 
     void BulletShoot()
