@@ -58,7 +58,15 @@ MonoBehaviour:
   bulletprefab: {fileID: 1403221019624339317, guid: 098dc0eff93c39d4c88e32b2bd02de90,
     type: 3}
   bulletSpawn: {fileID: 4364247342229704210}
-  isShooting: 0
+  shoot:
+    m_Name: Shoot
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1c70c60b-b3f1-4b3f-a3bf-fc5efa878cc8
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
 --- !u!114 &363125813633055686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba0faf00a854b944b1c299c11025d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxhealth: 100
+  currenthealth: 0
 --- !u!1 &7221946673616708800
 GameObject:
   m_ObjectHideFlags: 0

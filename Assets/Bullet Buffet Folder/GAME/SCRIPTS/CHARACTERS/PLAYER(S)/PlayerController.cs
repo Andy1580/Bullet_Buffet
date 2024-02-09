@@ -7,7 +7,7 @@ using static UnityEngine.InputSystem.InputAction;
 public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
-   
+
 
     private void Start()
     {
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 movementInput = Vector2.zero;
 
-    
+
 
 
     public void OnMove(InputAction.CallbackContext context)
@@ -106,11 +106,14 @@ public class PlayerController : MonoBehaviour
 
     void BulletShoot()
     {
+        if (cont <= 0)
+        {
             Transform clon = Instantiate(bulletprefab, bulletSpawn.position, bulletSpawn.rotation);
             clon.GetComponent<Rigidbody>().AddForce(transform.forward * bulletSpeed);
             Destroy(clon.gameObject, 3);
             cont = cooldown;
-        
+        }
+
         //if (playerInput.actions["Shoot"].triggered && cont <= 0)
         //{
         //}
