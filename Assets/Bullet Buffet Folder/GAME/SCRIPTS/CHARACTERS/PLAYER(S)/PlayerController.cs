@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     {
         //BulletShoot();
 
-        CallbackContext contexto = playerInput.actions["Shoot"].ReadValue<CallbackContext>();
+        //CallbackContext contexto = playerInput.actions["Shoot"].ReadValue<CallbackContext>();
 
         cont -= Time.deltaTime;
 

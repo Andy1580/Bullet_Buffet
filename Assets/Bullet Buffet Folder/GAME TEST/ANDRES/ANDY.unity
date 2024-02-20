@@ -745,45 +745,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 363125813633055686, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_NotificationBehavior
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 363125813633055686, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 363125813633055686, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
-      value: 8bfcb322-9973-4174-a7ff-3078dd43ee19
-      objectReference: {fileID: 0}
-    - target: {fileID: 363125813633055686, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
-      value: Player/MousePos[/Mouse/position]
-      objectReference: {fileID: 0}
-    - target: {fileID: 363125813633055686, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2135681517800813417, guid: 3b4a67e3b3e770f46be212e9b18372aa,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2135681517800813417, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3730694466038743795, guid: 3b4a67e3b3e770f46be212e9b18372aa,
-        type: 3}
-      propertyPath: shoot.m_Name
-      value: Shoot
       objectReference: {fileID: 0}
     - target: {fileID: 3994690149519416355, guid: 3b4a67e3b3e770f46be212e9b18372aa,
         type: 3}
@@ -857,7 +822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1597964142
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,13 +1022,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994888781}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40632567, y: -0, z: -0, w: 0.91372836}
-  m_LocalPosition: {x: 0, y: 17.54, z: -21.09}
+  m_LocalRotation: {x: 0.52211475, y: -0, z: -0, w: 0.85287523}
+  m_LocalPosition: {x: 0, y: 15.3, z: -11.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 47.948, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 62.948, y: 0, z: 0}
 --- !u!114 &1994888785
 MonoBehaviour:
   m_ObjectHideFlags: 0

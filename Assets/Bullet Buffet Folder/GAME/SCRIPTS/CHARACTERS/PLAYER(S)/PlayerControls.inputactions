@@ -95,7 +95,7 @@
                     "name": "",
                     "id": "6829fa2e-f203-43e3-ae4a-f4ccfbdd5914",
                     "path": "<Keyboard>/#(H)",
-                    "interactions": "Press(behavior=1)",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "Shoot",

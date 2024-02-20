@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7614681567939381654}
   - component: {fileID: 8920060022266441376}
   - component: {fileID: -2355893899460911342}
+  - component: {fileID: -2551854696490863194}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -51,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662857b2ce4717a4c81a5ea55c21c83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 7
   gravityValue: -9.81
   bulletSpeed: 1000
   cooldown: 1
@@ -186,13 +187,28 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135681517800813417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ba0faf00a854b944b1c299c11025d5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxhealth: 100
   currenthealth: 0
+--- !u!114 &-2551854696490863194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135681517800813417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d66d3468f06444caa726ae3a9e138d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  salud: 100
+  BarraSalud: {fileID: 0}
+  isInvulnerable: 0
 --- !u!1 &7221946673616708800
 GameObject:
   m_ObjectHideFlags: 0
