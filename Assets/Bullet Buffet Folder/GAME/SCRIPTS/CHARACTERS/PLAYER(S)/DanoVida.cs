@@ -15,7 +15,7 @@ public class DañoVida : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
         {
             Vida vida = other.GetComponent<Vida>();
             if (vida != null && !vida.isInvulnerable)
