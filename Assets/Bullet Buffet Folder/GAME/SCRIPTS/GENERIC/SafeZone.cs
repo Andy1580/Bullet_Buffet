@@ -140,7 +140,7 @@ public class SafeZone : MonoBehaviour
         yield return new WaitForSeconds(8f);
         StopCoroutine(CorutinaDeTiempo());
         tiempoRestante = 8f;
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
     }
 
     //Make sure there is a BoxCollider component attached to your GameObject
