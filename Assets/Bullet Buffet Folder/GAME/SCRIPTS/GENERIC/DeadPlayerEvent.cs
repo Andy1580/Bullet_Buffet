@@ -20,18 +20,82 @@ public class DeadPlayerEvent : MonoBehaviour
     private void Start()
     {
         playerReference1 = GameObject.FindGameObjectWithTag("Player1");
-        playerReference2 = GameObject.FindGameObjectWithTag("Player2");
-
+        
         vida1 = playerReference1.GetComponent<Vida>();
-        vida2 = playerReference2.GetComponent<Vida>();
-
         pla1 = playerReference1.GetComponent<PlayerController>();
-        pla2 = playerReference2.GetComponent<PlayerController>();
+
+        if (playerReference1 != null)
+        {
+            Debug.LogWarning($"Se encontro el GameObject: {playerReference1}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se encontro el GameObject: {playerReference1}");
+        }
+
+        if (vida1 != null)
+        {
+            Debug.LogWarning($"Se obtuvo el componente para: {vida1}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se obtuvo el componente para: {vida1}");
+        }
+
+        if (pla1 != null)
+        {
+            Debug.LogWarning($"Se obtuvo el componente para: {pla1}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se obtuvo el componente para: {pla1}");
+        }
+
     }
 
     private void Update()
     {
         CheckVida();
+        CheckPlayer2();
+    }
+
+    private void Awake()
+    {
+        
+    }
+
+    void CheckPlayer2()
+    {
+        playerReference2 = GameObject.FindGameObjectWithTag("Player2");
+        vida2 = playerReference2.GetComponent<Vida>();
+        pla2 = playerReference2.GetComponent<PlayerController>();
+
+        if (playerReference2 != null)
+        {
+            Debug.LogWarning($"Se encontro el GameObject: {playerReference2}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se encontro el GameObject: {playerReference2}");
+        }
+
+        if (vida2 != null)
+        {
+            Debug.LogWarning($"Se obtuvo el componente para: {vida2}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se obtuvo el componente para: {vida2}");
+        }
+
+        if (pla2 != null)
+        {
+            Debug.LogWarning($"Se obtuvo el componente para: {pla2}");
+        }
+        else
+        {
+            Debug.LogWarning($"No se obtuvo el componente para: {pla2}");
+        }
     }
 
     void CheckVida()
@@ -40,14 +104,23 @@ public class DeadPlayerEvent : MonoBehaviour
         {
             if (vida1.salud <= 0)
             {
+                Debug.LogWarning("El player 1 si murio, se agrego al player a trasladar y se inicio la corutina");
                 playerATrasladar = playerReference1;
                 StartCoroutine(PlayerTranslation());
             }
-
-            else if (vida2.salud <= 0)
+            else
             {
+                Debug.LogWarning("No funciono el metodo de CheckVida con player 1");
+            }
+            if (vida2.salud <= 0)
+            {
+                Debug.LogWarning("El player 1 si murio, se agrego al player a trasladar y se inicio la corutina");
                 playerATrasladar = playerReference2;
                 StartCoroutine(PlayerTranslation());
+            }
+            else
+            {
+                Debug.LogWarning("No funciono el metodo de CheckVida con player 2");
             }
         }
     }
