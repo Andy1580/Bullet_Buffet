@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class NextLevel : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class NextLevel : MonoBehaviour
     [SerializeField] private GameObject playerReference2;
     [SerializeField] private GameObject map1;
     [SerializeField] private GameObject map2;
+    [SerializeField] private GameObject portal;
 
     public float tiempoInicial = 4f;
     public float tiempoActual;
@@ -30,54 +32,79 @@ public class NextLevel : MonoBehaviour
     CapsuleCollider col2;
     PlayerController plaC2;
 
+    SphereCollider portalCol;
+
+    Vector3 spawnPlayer1;
+
     [SerializeField] private bool player1InArea = false;
     [SerializeField] private bool player2InArea = false;
 
     private void Start()
     {
         playerReference1 = GameObject.FindGameObjectWithTag("Player1");
-        playerReference2 = GameObject.FindGameObjectWithTag("Player2");
-
         
-        panelPantallaDeCarga.SetActive(false);
+        map2.SetActive(false);
 
-        //text1ReferenceObject.Find("Time1");
-        //text2ReferenceObject.Find("Time2");
+        spawnPlayer1 = spawn1.position - playerReference1.transform.position;
+        
+        portalCol = portal.GetComponent<SphereCollider>();
 
-        col1 = playerReference1.GetComponent<CapsuleCollider>();
-        plaC1 = playerReference1.GetComponent<PlayerController>();
+        //panelPantallaDeCarga.SetActive(false);
 
-        col2 = playerReference2.GetComponent<CapsuleCollider>();
-        plaC2 = playerReference2.GetComponent<PlayerController>();
+        ////text1ReferenceObject.Find("Time1");
+        ////text2ReferenceObject.Find("Time2");
 
-        //text1.text = playerReference1.gameObject.transform.GetChild(0).GetChild(6).name = "Time1";
-        //text2.text = playerReference2.gameObject.transform.GetChild(0).GetChild(6).name = "Time2";
+        //col1 = playerReference1.GetComponent<CapsuleCollider>();
+        //plaC1 = playerReference1.GetComponent<PlayerController>();
 
+        //col2 = playerReference2.GetComponent<CapsuleCollider>();
+        //plaC2 = playerReference2.GetComponent<PlayerController>();
+
+        ////text1.text = playerReference1.gameObject.transform.GetChild(0).GetChild(6).name = "Time1";
+        ////text2.text = playerReference2.gameObject.transform.GetChild(0).GetChild(6).name = "Time2";
+
+
+
+    }
+
+    private void Awake()
+    {
         tiempoActual = tiempoInicial;
 
     }
 
     private void Update()
     {
-        if(plaC1 != null)
+        playerReference2 = GameObject.FindGameObjectWithTag("Player2");
+
+        if (playerReference2 != null)
         {
-            Debug.LogWarning("Encontrado player Script");
+            Debug.Log("Se encontro player 2");
+        }
+        else
+        {
+            Debug.Log("No se encontro player 2");
         }
 
-        if (playerReference1 != null)
-        {
-            Debug.LogWarning("Object player1 encontrado: ");
+        //if(plaC1 != null)
+        //{
+        //    Debug.LogWarning("Encontrado player Script");
+        //}
 
-        }
+        //if (playerReference1 != null)
+        //{
+        //    Debug.LogWarning("Object player1 encontrado: ");
 
-        if (col1 != null)
-        {
-            Debug.LogWarning("Encontrado colider player");
-        }
+        //}
 
-        CheckArea();
-        CheckTime();
-        FindAnyObject();
+        //if (col1 != null)
+        //{
+        //    Debug.LogWarning("Encontrado colider player");
+        //}
+
+        //CheckArea();
+        //CheckTime();
+        //FindAnyObject();
     }
 
     void FindAnyObject()
@@ -96,6 +123,7 @@ public class NextLevel : MonoBehaviour
             if (!player2InArea)
             {
                 player1InArea = true;
+                StartCoroutine(IrAlSiguienteNivel());
             }
         }
 
@@ -104,6 +132,7 @@ public class NextLevel : MonoBehaviour
             if (!player1InArea)
             {
                 player2InArea = true;
+                StartCoroutine(IrAlSiguienteNivel());
             }
         }
 
@@ -117,7 +146,8 @@ public class NextLevel : MonoBehaviour
             {
                 player1InArea = false;
                 tiempoActual = tiempoInicial;
-                text1.enabled = false;
+                //text1.enabled = false;
+                StopCoroutine(IrAlSiguienteNivel());
             }
         }
 
@@ -127,7 +157,8 @@ public class NextLevel : MonoBehaviour
             {
                 player2InArea = false;
                 tiempoActual = tiempoInicial;
-                text2.enabled = false;
+                //text2.enabled = false;
+                StopCoroutine(IrAlSiguienteNivel());
             }
         }
 
@@ -185,8 +216,15 @@ public class NextLevel : MonoBehaviour
 
     void TrasladarPlayer()
     {
-        Instantiate(playerReference1, spawn1.transform.position, Quaternion.identity);
-        Instantiate(playerReference2, spawn2.transform.position, Quaternion.identity);
+        //Instantiate(playerReference1, spawn1.transform.position, Quaternion.identity);
+        //Instantiate(playerReference2, spawn2.transform.position, Quaternion.identity);
+
+        //playerReference1.transform.Translate(spawn1.transform.position);
+        //playerReference2.transform.Translate(spawn2.transform.position);
+
+        //playerReference1.transform.Translate(spawnPlayer1);
+        Debug.Log("Se traslado el player");
+        playerReference1.transform.Translate(spawnPlayer1.normalized * Time.deltaTime);
     }
 
     IEnumerator nextLevelCoroutine()
@@ -200,7 +238,7 @@ public class NextLevel : MonoBehaviour
         plaC2.enabled = false;
         map1.SetActive(false);
         map2.SetActive(true);
-        TrasladarPlayer();
+        //TrasladarPlayer();
         yield return new WaitForSeconds(5f);
         //panelPantallaDeCarga.SetActive(false);
         //playerReference1.SetActive(true);
@@ -209,6 +247,22 @@ public class NextLevel : MonoBehaviour
         yield return new WaitForSeconds(2f);
         plaC1.enabled = true; plaC2.enabled = true;
         yield return new WaitForSeconds(0.5f);
+    }
+
+    IEnumerator IrAlSiguienteNivel()
+    {
+        map1.SetActive(false);
+        playerReference1.GetComponent<PlayerController>().enabled = false;
+        playerReference2.GetComponent<PlayerController>().enabled = false;
+        portalCol.enabled = false;
+        //TrasladarPlayer();
+        yield return new WaitForSeconds(0.5f);
+        map2.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        playerReference1.GetComponent<PlayerController>().enabled = true;
+        playerReference2.GetComponent<PlayerController>().enabled = true;
+        yield return new WaitForSeconds(10f);
+        portalCol.enabled = true;
     }
 
 

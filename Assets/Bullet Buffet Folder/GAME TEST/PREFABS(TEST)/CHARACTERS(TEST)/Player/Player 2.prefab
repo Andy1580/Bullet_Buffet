@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662857b2ce4717a4c81a5ea55c21c83b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 2
+  playerSpeed: 7
   gravityValue: -9.81
   bulletSpeed: 1000
   cooldown: 1
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   salud: 100
-  BarraSalud: {fileID: 0}
+  BarraSalud: {fileID: 2912937530628911275}
   isInvulnerable: 0
 --- !u!1 &2806097142283172981
 GameObject:
@@ -427,7 +427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5708414840575196087
 RectTransform:
   m_ObjectHideFlags: 0
