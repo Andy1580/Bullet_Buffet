@@ -10,6 +10,7 @@ public class NextLevel : MonoBehaviour
     [SerializeField] private GameObject map1;
     [SerializeField] private GameObject map2;
     [SerializeField] private GameObject portal;
+    [SerializeField] private GameObject panelVictoria;
 
     public float tiempoInicial = 4f;
     public float tiempoActual;
@@ -48,6 +49,8 @@ public class NextLevel : MonoBehaviour
         spawnPlayer1 = spawn1.position - playerReference1.transform.position;
         
         portalCol = portal.GetComponent<SphereCollider>();
+
+        panelVictoria.SetActive(false);
 
         //panelPantallaDeCarga.SetActive(false);
 
@@ -258,6 +261,7 @@ public class NextLevel : MonoBehaviour
         //TrasladarPlayer();
         yield return new WaitForSeconds(0.5f);
         map2.SetActive(true);
+        panelVictoria.SetActive(true);
         yield return new WaitForSeconds(2f);
         playerReference1.GetComponent<PlayerController>().enabled = true;
         playerReference2.GetComponent<PlayerController>().enabled = true;
