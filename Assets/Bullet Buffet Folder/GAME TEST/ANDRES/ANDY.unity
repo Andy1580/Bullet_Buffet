@@ -2045,13 +2045,18 @@ PrefabInstance:
     - target: {fileID: 676252084032481211, guid: ec427d7386c09864ea8f7ffec09c7cf6,
         type: 3}
       propertyPath: m_JoinBehavior
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 676252084032481211, guid: ec427d7386c09864ea8f7ffec09c7cf6,
         type: 3}
-      propertyPath: m_PlayerPrefab
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 676252084032481211, guid: ec427d7386c09864ea8f7ffec09c7cf6,
+        type: 3}
+      propertyPath: m_PlayerJoinedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2135681517800813417, guid: dadbc8d1b9f7cca46b440246bee2351e,
+      objectReference: {fileID: 11500000, guid: 3604fc8973c779042a716890e6212540,
         type: 3}
     - target: {fileID: 2916179407424191037, guid: ec427d7386c09864ea8f7ffec09c7cf6,
         type: 3}
@@ -2102,6 +2107,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4723160508501585331, guid: ec427d7386c09864ea8f7ffec09c7cf6,
+        type: 3}
+      propertyPath: character
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6076943264573385282, guid: ec427d7386c09864ea8f7ffec09c7cf6,
         type: 3}
@@ -6442,7 +6452,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1604833431}
-  - component: {fileID: 1604833430}
   - component: {fileID: 1604833432}
   m_Layer: 0
   m_Name: PlayerSpawnTest
@@ -6451,20 +6460,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1604833430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604833429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cf7cf5d34ef08e40b5282a98f27ae66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  character: {fileID: 11400000, guid: c0767b07a1106b84185d0724b0df4627, type: 2}
-  healthPlayer: 0
 --- !u!4 &1604833431
 Transform:
   m_ObjectHideFlags: 0
