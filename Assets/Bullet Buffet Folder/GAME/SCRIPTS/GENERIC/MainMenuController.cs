@@ -39,7 +39,12 @@ public class MainMenuController : MonoBehaviour
 
     public void ModoEnfrentamiento()
     {
-        SceneManager.LoadScene("ANDY");
+        SceneManager.LoadScene("ANDYCLASH");
+    }
+
+    public void ModeCaptureFlag()
+    {
+        SceneManager.LoadScene("ANDYFLAG");
     }
 
 
