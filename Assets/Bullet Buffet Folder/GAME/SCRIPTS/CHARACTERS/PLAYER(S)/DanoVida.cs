@@ -23,7 +23,7 @@ public class DañoVida : MonoBehaviour
                 vida.salud -= damage;
                 next.GetComponent<NextLevel>().tiempoActual = next.GetComponent<NextLevel>().tiempoInicial;
                 vida.StartCoroutine(ActivateInvulnerability(vida));
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
         }
     }

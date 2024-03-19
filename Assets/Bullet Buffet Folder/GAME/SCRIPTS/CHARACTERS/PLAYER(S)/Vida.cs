@@ -19,11 +19,11 @@ public class Vida : MonoBehaviour
         if (salud <= 0)
         {
             Debug.Log("Muerto");
-            this.gameObject.SetActive(false);
+            //this.gameObject.SetActive(false);
         }
         else
         {
-            this.gameObject.SetActive(true);
+            //this.gameObject.SetActive(true);
         }
     }
 
