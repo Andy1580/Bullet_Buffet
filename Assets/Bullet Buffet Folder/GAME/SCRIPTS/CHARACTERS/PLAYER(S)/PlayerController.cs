@@ -1,36 +1,38 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEngine.InputSystem.InputAction;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
     private PlayerInput playerInput;
 
+    private Transform playerTransform;
 
     private void Start()
     {
         controller = gameObject.GetComponent<CharacterController>();
         playerInput = GetComponent<PlayerInput>();
-    }
 
+        playerTransform = this.transform;
+    }
 
 
     #region Movement
     [Header("Movement stats")]
     [SerializeField] private float playerSpeed = 2.0f;
     [SerializeField] private float gravityValue = -9.81f;
-    //private float jumpHeight = 1.0f;
+
 
     private CharacterController controller;
-    private Vector3 playerVelocity;
+    private Vector2 playerVelocity;
     private bool groundedPlayer;
 
     private Vector2 movementInput = Vector2.zero;
 
+    public float velocidadRotacion = 5f; // Velocidad de rotación del jugador
 
-
+    Quaternion q;
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -42,6 +44,8 @@ public class PlayerController : MonoBehaviour
         //BulletShoot();
 
         //CallbackContext contexto = playerInput.actions["Shoot"].ReadValue<CallbackContext>();
+
+
 
         cont -= Time.deltaTime;
 
@@ -67,6 +71,29 @@ public class PlayerController : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        // Obtener la posición del mouse en pantalla
+        //Vector3 posicionMouse = Input.mousePosition;
+            
+            //Mouse.current.position.ReadValue();
+
+        //posicionMouse = Camera.main.ScreenToWorldPoint(posicionMouse);
+
+
+        //Vector2 direccion = new Vector2(posicionMouse.x - transform.rotation.x, posicionMouse.y - transform.rotation.y);
+
+        //transform.right = direccion;
+        
+        ///////////////////////////////////
+
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - playerTransform.position;
+
+        float angle = Mathf.Atan2(direction.y,direction.x) * Mathf.Rad2Deg;
+
+        Quaternion rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+
+        playerTransform.rotation = rotation;
+
     }
     #endregion
 
@@ -87,7 +114,7 @@ public class PlayerController : MonoBehaviour
 
     private ControlInput input;
 
-    public InputAction shoot;
+    //public InputAction shoot;
 
     private InputControl shoot2;
 
